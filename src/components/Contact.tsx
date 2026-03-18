@@ -10,8 +10,8 @@ export default function Contact() {
       <div className="max-w-site mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
 
-          {/* Left: label + heading + photo */}
-          <RevealOnScroll className="md:col-span-4 flex flex-col gap-8">
+          {/* Left: text + links */}
+          <RevealOnScroll className="md:col-span-7 flex flex-col gap-10">
             <div>
               <p className="text-[11px] tracking-[0.14em] uppercase text-taupe mb-4 font-medium">
                 {t("label")}
@@ -20,28 +20,6 @@ export default function Contact() {
                 {t("title")}
               </h2>
             </div>
-
-            {/* Photo */}
-            <div className="relative w-fit">
-              <div
-                className="absolute -bottom-3 -left-3 w-full h-full border border-[#DAD7D2]"
-                aria-hidden="true"
-              />
-              <div className="relative w-[200px] overflow-hidden">
-                <Image
-                  src="/KM.jpg"
-                  alt="Krystian Mądry"
-                  width={200}
-                  height={240}
-                  className="w-full object-cover object-top"
-                  style={{ aspectRatio: "5/6" }}
-                />
-              </div>
-            </div>
-          </RevealOnScroll>
-
-          {/* Right: text + links */}
-          <RevealOnScroll className="md:col-span-7 md:col-start-6 flex flex-col gap-10" delay={100}>
             <p className="text-[1rem] leading-[1.8] text-muted font-light max-w-lg">
               {t("text")}
             </p>
@@ -65,6 +43,26 @@ export default function Contact() {
                 >
                   linkedin.com/in/krystian-mądry
                 </a>
+              </div>
+            </div>
+          </RevealOnScroll>
+
+          {/* Right: photo */}
+          <RevealOnScroll className="md:col-span-4 md:col-start-9 flex flex-col gap-8" delay={100}>
+            <div className="relative w-fit">
+              <div
+                className="absolute -bottom-3 -right-3 w-full h-full border border-[#DAD7D2]"
+                aria-hidden="true"
+              />
+              <div className="relative w-[300px] overflow-hidden">
+                <Image
+                  src="/KM.png"
+                  alt="Krystian Mądry"
+                  width={300}
+                  height={360}
+                  className="w-full object-cover object-top"
+                  style={{ aspectRatio: "5/6", transform: "scaleX(-1)" }}
+                />
               </div>
             </div>
           </RevealOnScroll>

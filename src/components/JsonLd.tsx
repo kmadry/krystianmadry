@@ -4,7 +4,7 @@ export default function JsonLd() {
     "@type": "Person",
     name: "Krystian M\u0105dry",
     url: "https://krystianmadry.pl",
-    image: "https://krystianmadry.pl/KM.jpg",
+    image: "https://krystianmadry.pl/KM.png",
     email: "kryst.madry@gmail.com",
     jobTitle: "Senior Frontend Engineer & CTO",
     sameAs: [
