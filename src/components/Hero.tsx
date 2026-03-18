@@ -135,19 +135,6 @@ export default function Hero() {
           {" "}— budowane równolegle, systemowo, bez zbędnego chaosu.
         </p>
 
-        {/* Soft CTA */}
-        <p
-          className="text-[0.9375rem] text-taupe leading-relaxed max-w-sm border-l-2 border-[#DAD7D2] pl-4"
-          style={{ opacity: 0, animation: "fadeInUp 0.7s ease 0.7s forwards" }}
-        >
-          Jeśli widzisz miejsce, gdzie możemy się przeciąć&nbsp;—{" "}
-          <a
-            href="#contact"
-            className="text-navy underline underline-offset-4 decoration-[#DAD7D2] hover:decoration-navy transition-colors duration-250"
-          >
-            odezwij się.
-          </a>
-        </p>
       </div>
 
       {/* Scroll indicator */}

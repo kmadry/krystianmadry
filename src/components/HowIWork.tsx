@@ -20,7 +20,7 @@ export default function HowIWork() {
     <section
       id="how"
       className="px-6 md:px-10 py-24 md:py-32"
-      style={{ backgroundColor: "#1B2E4B" }}
+      style={{ backgroundColor: "#1C1A17" }}
       aria-labelledby="how-heading"
     >
       <div className="max-w-site mx-auto">
@@ -29,19 +29,19 @@ export default function HowIWork() {
           <RevealOnScroll className="md:col-span-4">
             <p
               className="text-[11px] tracking-[0.14em] uppercase font-medium mb-4"
-              style={{ color: "#6B8BB5" }}
+              style={{ color: "#6B5F50" }}
             >
               03 — Proces
             </p>
             <h2
               id="how-heading"
               className="font-serif text-[clamp(1.75rem,4vw,3rem)] tracking-tight leading-tight"
-              style={{ color: "#F0EDE9" }}
+              style={{ color: "#EDE8E2" }}
             >
               Jak działam
             </h2>
 
-            {/* Decorative concentric circles — inverted */}
+            {/* Decorative concentric circles */}
             <div className="hidden md:block mt-16" aria-hidden="true">
               <svg
                 width="88"
@@ -49,12 +49,12 @@ export default function HowIWork() {
                 viewBox="0 0 88 88"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{ opacity: 0.15 }}
+                style={{ opacity: 0.12 }}
               >
-                <circle cx="44" cy="44" r="43.5" stroke="#F0EDE9" />
-                <circle cx="44" cy="44" r="29.5" stroke="#F0EDE9" />
-                <circle cx="44" cy="44" r="15.5" stroke="#F0EDE9" />
-                <circle cx="44" cy="44" r="3" fill="#F0EDE9" />
+                <circle cx="44" cy="44" r="43.5" stroke="#EDE8E2" />
+                <circle cx="44" cy="44" r="29.5" stroke="#EDE8E2" />
+                <circle cx="44" cy="44" r="15.5" stroke="#EDE8E2" />
+                <circle cx="44" cy="44" r="3" fill="#EDE8E2" />
               </svg>
             </div>
           </RevealOnScroll>
@@ -68,20 +68,20 @@ export default function HowIWork() {
                   style={{
                     borderBottom:
                       i < principles.length - 1
-                        ? "1px solid #243D61"
+                        ? "1px solid #2C2924"
                         : undefined,
                   }}
                 >
                   <span
                     className="text-[11px] tracking-[0.1em] font-medium mt-1 shrink-0 w-6"
-                    style={{ color: "#6B8BB5" }}
+                    style={{ color: "#6B5F50" }}
                     aria-hidden="true"
                   >
                     {p.index}
                   </span>
                   <p
                     className="text-[1rem] leading-[1.8] font-light"
-                    style={{ color: "#9AAFC8" }}
+                    style={{ color: "#8C7F6E" }}
                   >
                     {p.text}
                   </p>
