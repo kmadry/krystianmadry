@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import RevealOnScroll from "./RevealOnScroll";
 
@@ -7,16 +8,39 @@ export default function Contact() {
   return (
     <section id="contact" className="px-6 md:px-10 py-24 md:py-32 border-t border-[#DAD7D2]" aria-labelledby="contact-heading">
       <div className="max-w-site mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
-          <RevealOnScroll className="md:col-span-4">
-            <p className="text-[11px] tracking-[0.14em] uppercase text-taupe mb-4 font-medium">
-              {t("label")}
-            </p>
-            <h2 id="contact-heading" className="font-serif text-[clamp(1.75rem,4vw,3rem)] text-ink tracking-tight leading-tight">
-              {t("title")}
-            </h2>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
+
+          {/* Left: label + heading + photo */}
+          <RevealOnScroll className="md:col-span-4 flex flex-col gap-8">
+            <div>
+              <p className="text-[11px] tracking-[0.14em] uppercase text-taupe mb-4 font-medium">
+                {t("label")}
+              </p>
+              <h2 id="contact-heading" className="font-serif text-[clamp(1.75rem,4vw,3rem)] text-ink tracking-tight leading-tight">
+                {t("title")}
+              </h2>
+            </div>
+
+            {/* Photo */}
+            <div className="relative w-fit">
+              <div
+                className="absolute -bottom-3 -left-3 w-full h-full border border-[#DAD7D2]"
+                aria-hidden="true"
+              />
+              <div className="relative w-[200px] overflow-hidden">
+                <Image
+                  src="/KM.jpg"
+                  alt="Krystian Mądry"
+                  width={200}
+                  height={240}
+                  className="w-full object-cover object-top"
+                  style={{ aspectRatio: "5/6" }}
+                />
+              </div>
+            </div>
           </RevealOnScroll>
 
+          {/* Right: text + links */}
           <RevealOnScroll className="md:col-span-7 md:col-start-6 flex flex-col gap-10" delay={100}>
             <p className="text-[1rem] leading-[1.8] text-muted font-light max-w-lg">
               {t("text")}
@@ -44,6 +68,7 @@ export default function Contact() {
               </div>
             </div>
           </RevealOnScroll>
+
         </div>
       </div>
     </section>
