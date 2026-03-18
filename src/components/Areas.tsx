@@ -1,64 +1,15 @@
 "use client";
 
+import Link from "next/link";
+import { areas } from "@/lib/areas";
 import StatusChip from "./StatusChip";
 import RevealOnScroll from "./RevealOnScroll";
 
-const areas = [
-  {
-    id: "engineering",
-    title: "Engineering / Praca projektowa",
-    description:
-      "Buduję i dowożę złożone produkty cyfrowe — od implementacji po architekturę.",
-    status: "aktywnie",
-  },
-  {
-    id: "produkty",
-    title: "Produkty własne",
-    description:
-      "Tworzę własne aplikacje i produkty — od pomysłu do pierwszej działającej wersji.",
-    status: "w budowie",
-  },
-  {
-    id: "mentoring",
-    title: "Mentoring / Inkubacja.dev",
-    description:
-      "Pomagam developerom wejść poziom wyżej — przez sposób myślenia i dowożenie, nie kolejne technologie.",
-    status: "startuje",
-  },
-  {
-    id: "events",
-    title: "Eventy / Integracja",
-    description:
-      "Tworzę doświadczenia oparte na rywalizacji i zabawie — pierwszy event RC już w drodze.",
-    status: "pierwszy event",
-  },
-  {
-    id: "design",
-    title: "Forma / Inspiracja",
-    description:
-      "Przekładam idee na fizyczne formy — minimalistyczne obiekty i odlewy.",
-    status: "pierwsi klienci",
-  },
-  {
-    id: "tools",
-    title: "Narzędzia / Produkcja",
-    description:
-      "Druk 3D, CNC i grawer — zaplecze do tworzenia i testowania rzeczy.",
-    status: "rozwój",
-  },
-  {
-    id: "ops",
-    title: "Operacje / Wypożyczalnia",
-    description:
-      "Buduję prosty biznes oparty na sprzęcie i dostępności.",
-    status: "start",
-  },
-];
-
 function AreaCard({ area }: { area: (typeof areas)[0] }) {
   return (
-    <div
-      className="group relative p-6 md:p-8 flex flex-col gap-5 transition-colors duration-250 cursor-default h-full"
+    <Link
+      href={`/obszary/${area.id}`}
+      className="group relative p-6 md:p-8 flex flex-col gap-5 transition-colors duration-250 h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
       style={{
         borderBottom: "1px solid #243D61",
         borderRight: "1px solid #243D61",
@@ -98,13 +49,22 @@ function AreaCard({ area }: { area: (typeof areas)[0] }) {
         {area.description}
       </p>
 
+      {/* Arrow indicator */}
+      <span
+        className="text-[11px] tracking-[0.08em] uppercase font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-250 mt-1"
+        style={{ color: "#6B8BB5" }}
+        aria-hidden="true"
+      >
+        więcej →
+      </span>
+
       {/* Bottom accent line on hover */}
       <div
         className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-350"
         style={{ backgroundColor: "#F0EDE9" }}
         aria-hidden="true"
       />
-    </div>
+    </Link>
   );
 }
 
