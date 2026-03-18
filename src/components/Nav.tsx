@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "@/navigation";
 import { routing } from "@/routing";
 
 const localeLabels: Record<string, string> = {
@@ -42,14 +42,7 @@ export default function Nav() {
 
   const switchLocale = (nextLocale: string) => {
     setLangOpen(false);
-    // Rebuild path with new locale prefix
-    const segments = pathname.split("/").filter(Boolean);
-    const isCurrentLocalePrefix = routing.locales.includes(segments[0] as "pl" | "en" | "de" | "es");
-    const pathWithoutLocale = isCurrentLocalePrefix ? "/" + segments.slice(1).join("/") : pathname;
-    const newPath = nextLocale === routing.defaultLocale
-      ? pathWithoutLocale || "/"
-      : `/${nextLocale}${pathWithoutLocale}`;
-    router.push(newPath);
+    router.replace(pathname, { locale: nextLocale });
   };
 
   return (
