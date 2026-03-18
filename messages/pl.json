@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "start": "Start",
+    "areas": "Obszary",
+    "how": "Jak działam",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "label": "Krystian Mądry",
+    "headline": "Łączę światy,",
+    "headlineSub": "które rzadko się spotykają.",
+    "words": ["software", "produkty", "doświadczenia", "fizyczne formy"],
+    "wordsSuffix": "— budowane równolegle, systemowo, bez zbędnego chaosu."
+  },
+  "areas": {
+    "label": "02 — Obszary",
+    "title": "Czym się zajmuję",
+    "more": "więcej →"
+  },
+  "how": {
+    "label": "03 — Proces",
+    "title": "Jak działam",
+    "principles": [
+      "Nie skupiam się na narzędziach, tylko na rezultacie. Kod, produkt czy fizyczny obiekt to tylko forma.",
+      "Myślę systemowo — szukam zależności, upraszczam, domykam. Nie interesuje mnie perfekcja, tylko dowiezienie rzeczy, które działają.",
+      "Większość rzeczy, które robię, powstaje równolegle. Z zewnątrz wygląda to jak chaos — w środku ma strukturę."
+    ]
+  },
+  "contact": {
+    "label": "04 — Kontakt",
+    "title": "Kontakt",
+    "text": "Jeśli widzisz miejsce, gdzie możemy się przeciąć — odezwij się. Bez przesadnych formularzy i korporacyjnych wstępów.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn"
+  },
+  "footer": {
+    "tagline": "Od pomysłu do formy."
+  },
+  "back": "← Wróć do strony głównej",
+  "wip": "treść w przygotowaniu",
+  "transition": {
+    "from": "Z trybu",
+    "to": "Wchodzisz w"
+  },
+  "areas_data": {
+    "engineering": {
+      "title": "Engineering / Praca projektowa",
+      "description": "Buduję i dowożę złożone produkty cyfrowe — od implementacji po architekturę."
+    },
+    "produkty": {
+      "title": "Produkty własne",
+      "description": "Tworzę własne aplikacje i produkty — od pomysłu do pierwszej działającej wersji."
+    },
+    "mentoring": {
+      "title": "Mentoring / Inkubacja.dev",
+      "description": "Pomagam developerom wejść poziom wyżej — przez sposób myślenia i dowożenie, nie kolejne technologie."
+    },
+    "events": {
+      "title": "Eventy / Integracja",
+      "description": "Tworzę doświadczenia oparte na rywalizacji i zabawie — pierwszy event RC już w drodze."
+    },
+    "design": {
+      "title": "Forma / Inspiracja",
+      "description": "Przekładam idee na fizyczne formy — minimalistyczne obiekty i odlewy."
+    },
+    "tools": {
+      "title": "Narzędzia / Produkcja",
+      "description": "Druk 3D, CNC i grawer — zaplecze do tworzenia i testowania rzeczy."
+    },
+    "ops": {
+      "title": "Operacje / Wypożyczalnia",
+      "description": "Buduję prosty biznes oparty na sprzęcie i dostępności."
+    }
+  },
+  "status": {
+    "aktywnie": "aktywnie",
+    "w trakcie": "w trakcie",
+    "w budowie": "w budowie",
+    "startuje": "startuje",
+    "pierwszy event": "pierwszy event",
+    "pierwsi klienci": "pierwsi klienci",
+    "rozwój": "rozwój",
+    "start": "start"
+  }
+}

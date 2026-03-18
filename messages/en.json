@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "start": "Start",
+    "areas": "Areas",
+    "how": "How I work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "label": "Krystian Mądry",
+    "headline": "I connect worlds",
+    "headlineSub": "that rarely meet.",
+    "words": ["software", "products", "experiences", "physical forms"],
+    "wordsSuffix": "— built in parallel, systematically, without unnecessary chaos."
+  },
+  "areas": {
+    "label": "02 — Areas",
+    "title": "What I do",
+    "more": "more →"
+  },
+  "how": {
+    "label": "03 — Process",
+    "title": "How I work",
+    "principles": [
+      "I don't focus on tools — I focus on results. Code, product or physical object is just the form.",
+      "I think systematically — I look for dependencies, simplify, close the loop. I'm not interested in perfection, only in delivering things that work.",
+      "Most of what I do happens in parallel. From the outside it looks like chaos — on the inside it has structure."
+    ]
+  },
+  "contact": {
+    "label": "04 — Contact",
+    "title": "Contact",
+    "text": "If you see a place where our paths could cross — reach out. No lengthy forms or corporate intros.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn"
+  },
+  "footer": {
+    "tagline": "From idea to form."
+  },
+  "back": "← Back to home",
+  "wip": "content in preparation",
+  "transition": {
+    "from": "From",
+    "to": "You move into"
+  },
+  "areas_data": {
+    "engineering": {
+      "title": "Engineering / Project work",
+      "description": "I build and deliver complex digital products — from implementation to architecture."
+    },
+    "produkty": {
+      "title": "Own products",
+      "description": "I create my own applications and products — from idea to first working version."
+    },
+    "mentoring": {
+      "title": "Mentoring / Inkubacja.dev",
+      "description": "I help developers level up — through mindset and delivery, not another technology."
+    },
+    "events": {
+      "title": "Events / Integration",
+      "description": "I create experiences based on competition and fun — the first RC event is on its way."
+    },
+    "design": {
+      "title": "Form / Inspiracja",
+      "description": "I translate ideas into physical forms — minimalist objects and casts."
+    },
+    "tools": {
+      "title": "Tools / Production",
+      "description": "3D printing, CNC and engraving — a base for creating and testing things."
+    },
+    "ops": {
+      "title": "Operations / Rental",
+      "description": "I'm building a simple business based on equipment and accessibility."
+    }
+  },
+  "status": {
+    "aktywnie": "active",
+    "w trakcie": "in progress",
+    "w budowie": "in build",
+    "startuje": "starting",
+    "pierwszy event": "first event",
+    "pierwsi klienci": "first clients",
+    "rozwój": "growing",
+    "start": "launching"
+  }
+}

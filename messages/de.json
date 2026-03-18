@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "start": "Start",
+    "areas": "Bereiche",
+    "how": "Wie ich arbeite",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "label": "Krystian Mądry",
+    "headline": "Ich verbinde Welten,",
+    "headlineSub": "die sich selten begegnen.",
+    "words": ["Software", "Produkte", "Erlebnisse", "physische Formen"],
+    "wordsSuffix": "— parallel gebaut, systematisch, ohne unnötiges Chaos."
+  },
+  "areas": {
+    "label": "02 — Bereiche",
+    "title": "Was ich tue",
+    "more": "mehr →"
+  },
+  "how": {
+    "label": "03 — Prozess",
+    "title": "Wie ich arbeite",
+    "principles": [
+      "Ich konzentriere mich nicht auf Werkzeuge, sondern auf Ergebnisse. Code, Produkt oder physisches Objekt ist nur die Form.",
+      "Ich denke systematisch — ich suche Abhängigkeiten, vereinfache, schließe ab. Mich interessiert keine Perfektion, nur die Lieferung von Dingen, die funktionieren.",
+      "Das meiste, was ich tue, entsteht parallel. Von außen sieht es wie Chaos aus — innen hat es Struktur."
+    ]
+  },
+  "contact": {
+    "label": "04 — Kontakt",
+    "title": "Kontakt",
+    "text": "Wenn du einen Ort siehst, wo sich unsere Wege kreuzen könnten — melde dich. Ohne aufwändige Formulare oder Unternehmensfloskeln.",
+    "emailLabel": "E-Mail",
+    "linkedinLabel": "LinkedIn"
+  },
+  "footer": {
+    "tagline": "Von der Idee zur Form."
+  },
+  "back": "← Zurück zur Startseite",
+  "wip": "Inhalt in Vorbereitung",
+  "transition": {
+    "from": "Vom Modus",
+    "to": "Du wechselst in"
+  },
+  "areas_data": {
+    "engineering": {
+      "title": "Engineering / Projektarbeit",
+      "description": "Ich baue und liefere komplexe digitale Produkte — von der Implementierung bis zur Architektur."
+    },
+    "produkty": {
+      "title": "Eigene Produkte",
+      "description": "Ich erstelle eigene Anwendungen und Produkte — von der Idee bis zur ersten funktionierenden Version."
+    },
+    "mentoring": {
+      "title": "Mentoring / Inkubacja.dev",
+      "description": "Ich helfe Entwicklern, eine Ebene höher zu steigen — durch Denkweise und Lieferung, nicht durch neue Technologien."
+    },
+    "events": {
+      "title": "Events / Integration",
+      "description": "Ich schaffe Erlebnisse auf Basis von Wettkampf und Spaß — das erste RC-Event ist auf dem Weg."
+    },
+    "design": {
+      "title": "Form / Inspiracja",
+      "description": "Ich übersetze Ideen in physische Formen — minimalistische Objekte und Abgüsse."
+    },
+    "tools": {
+      "title": "Werkzeuge / Produktion",
+      "description": "3D-Druck, CNC und Gravur — eine Basis zum Erstellen und Testen von Dingen."
+    },
+    "ops": {
+      "title": "Betrieb / Verleih",
+      "description": "Ich baue ein einfaches Unternehmen auf Basis von Ausrüstung und Zugänglichkeit auf."
+    }
+  },
+  "status": {
+    "aktywnie": "aktiv",
+    "w trakcie": "laufend",
+    "w budowie": "im Aufbau",
+    "startuje": "startet",
+    "pierwszy event": "erstes Event",
+    "pierwsi klienci": "erste Kunden",
+    "rozwój": "wächst",
+    "start": "startet"
+  }
+}

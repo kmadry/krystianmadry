@@ -1,27 +1,43 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { areas, getArea } from "@/lib/areas";
+import { getTranslations } from "next-intl/server";
+import { areas } from "@/lib/areas";
 import { getAreaContent, type AreaContent, type ContentBlock } from "@/lib/content";
 import StatusChip from "@/components/StatusChip";
+import { routing } from "@/routing";
 
 export function generateStaticParams() {
-  return areas.map((area) => ({ slug: area.id }));
+  const params = [];
+  for (const locale of routing.locales) {
+    for (const area of areas) {
+      params.push({ locale, slug: area.id });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const area = getArea(params.slug);
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "areas_data" });
+  const area = areas.find((a) => a.id === slug);
   if (!area) return {};
   return {
-    title: `${area.title} — Krystian Mądry`,
-    description: area.description,
+    title: `${t(`${slug}.title`)} — Krystian Mądry`,
+    description: t(`${slug}.description`),
   };
 }
 
-function Block({ block }: { block: ContentBlock }) {
+function Block({
+  block,
+  transitionLabels,
+}: {
+  block: ContentBlock;
+  transitionLabels: { from: string; to: string };
+}) {
   if (block.type === "text") {
     return (
       <div className="flex flex-col gap-4">
@@ -42,10 +58,7 @@ function Block({ block }: { block: ContentBlock }) {
     return (
       <div className="flex flex-col gap-3">
         {block.prefix && (
-          <p
-            className="text-[1rem] leading-[1.8] font-light"
-            style={{ color: "#6B6560" }}
-          >
+          <p className="text-[1rem] leading-[1.8] font-light" style={{ color: "#6B6560" }}>
             {block.prefix}
           </p>
         )}
@@ -57,10 +70,7 @@ function Block({ block }: { block: ContentBlock }) {
                 style={{ backgroundColor: "#8A7E6F" }}
                 aria-hidden="true"
               />
-              <span
-                className="text-[1rem] leading-[1.8] font-light"
-                style={{ color: "#6B6560" }}
-              >
+              <span className="text-[1rem] leading-[1.8] font-light" style={{ color: "#6B6560" }}>
                 {item}
               </span>
             </li>
@@ -84,55 +94,26 @@ function Block({ block }: { block: ContentBlock }) {
   if (block.type === "transition") {
     return (
       <div className="flex flex-col sm:flex-row gap-6 sm:gap-12 items-start">
-        {/* From */}
-        <div
-          className="flex-1 border border-dashed border-[#DAD7D2] p-5"
-        >
-          <p
-            className="text-[10px] tracking-[0.12em] uppercase font-medium mb-3"
-            style={{ color: "#B8B4AE" }}
-          >
-            Z trybu
+        <div className="flex-1 border border-dashed border-[#DAD7D2] p-5">
+          <p className="text-[10px] tracking-[0.12em] uppercase font-medium mb-3" style={{ color: "#B8B4AE" }}>
+            {transitionLabels.from}
           </p>
-          <p
-            className="text-[0.9375rem] leading-[1.7] font-light"
-            style={{ color: "#8A7E6F" }}
-          >
+          <p className="text-[0.9375rem] leading-[1.7] font-light" style={{ color: "#8A7E6F" }}>
             „{block.from}"
           </p>
         </div>
-
-        {/* Arrow */}
-        <div
-          className="self-center text-[1.25rem] shrink-0 hidden sm:block"
-          style={{ color: "#DAD7D2" }}
-          aria-hidden="true"
-        >
+        <div className="self-center text-[1.25rem] shrink-0 hidden sm:block" style={{ color: "#DAD7D2" }} aria-hidden="true">
           →
         </div>
-
-        {/* To */}
         <div className="flex-1 border border-[#DAD7D2] p-5">
-          <p
-            className="text-[10px] tracking-[0.12em] uppercase font-medium mb-3"
-            style={{ color: "#8A7E6F" }}
-          >
-            Wchodzisz w
+          <p className="text-[10px] tracking-[0.12em] uppercase font-medium mb-3" style={{ color: "#8A7E6F" }}>
+            {transitionLabels.to}
           </p>
           <ul className="flex flex-col gap-2">
             {block.to.map((item, i) => (
               <li key={i} className="flex gap-3 items-start">
-                <span
-                  className="mt-[0.55em] w-1 h-1 rounded-full shrink-0"
-                  style={{ backgroundColor: "#1B2E4B" }}
-                  aria-hidden="true"
-                />
-                <span
-                  className="text-[0.9375rem] leading-[1.7] font-light"
-                  style={{ color: "#1A1917" }}
-                >
-                  {item}
-                </span>
+                <span className="mt-[0.55em] w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: "#1B2E4B" }} aria-hidden="true" />
+                <span className="text-[0.9375rem] leading-[1.7] font-light" style={{ color: "#1A1917" }}>{item}</span>
               </li>
             ))}
           </ul>
@@ -144,63 +125,51 @@ function Block({ block }: { block: ContentBlock }) {
   return null;
 }
 
-function RichContent({ content }: { content: AreaContent }) {
+function RichContent({
+  content,
+  transitionLabels,
+}: {
+  content: AreaContent;
+  transitionLabels: { from: string; to: string };
+}) {
   return (
     <>
-      {/* Tagline */}
       <section className="px-6 md:px-10 py-16 border-b border-[#DAD7D2]">
         <div className="max-w-site mx-auto">
-          <p
-            className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] leading-[1.5] max-w-2xl"
-            style={{ color: "#1B2E4B", letterSpacing: "-0.01em" }}
-          >
+          <p className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] leading-[1.5] max-w-2xl whitespace-pre-line" style={{ color: "#1B2E4B", letterSpacing: "-0.01em" }}>
             {content.tagline}
           </p>
         </div>
       </section>
 
-      {/* Sections */}
       {content.sections.map((section, si) => (
-        <section
-          key={si}
-          className="px-6 md:px-10 py-14 border-b border-[#DAD7D2]"
-        >
+        <section key={si} className="px-6 md:px-10 py-14 border-b border-[#DAD7D2]">
           <div className="max-w-site mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
-            {/* Section title */}
             <div className="md:col-span-3">
-              <h2
-                className="text-[0.8125rem] tracking-[0.06em] font-medium uppercase sticky top-20"
-                style={{ color: "#8A7E6F" }}
-              >
+              <h2 className="text-[0.8125rem] tracking-[0.06em] font-medium uppercase sticky top-20" style={{ color: "#8A7E6F" }}>
                 {section.title}
               </h2>
             </div>
-
-            {/* Blocks */}
             <div className="md:col-span-7 md:col-start-5 flex flex-col gap-8">
               {section.blocks.map((block, bi) => (
-                <Block key={bi} block={block} />
+                <Block key={bi} block={block} transitionLabels={transitionLabels} />
               ))}
             </div>
           </div>
         </section>
       ))}
 
-      {/* CTA */}
       {content.cta && (
         <section className="px-6 md:px-10 py-16">
           <div className="max-w-site mx-auto">
             {content.cta.note && (
-              <p
-                className="text-[1rem] leading-[1.75] font-light mb-6 max-w-md"
-                style={{ color: "#6B6560" }}
-              >
+              <p className="text-[1rem] leading-[1.75] font-light mb-6 max-w-md" style={{ color: "#6B6560" }}>
                 {content.cta.note}
               </p>
             )}
             <a
               href={content.cta.href}
-              target="_blank"
+              target={content.cta.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noopener noreferrer"
               className="inline-block text-[0.9375rem] font-medium underline underline-offset-4 decoration-[#DAD7D2] hover:decoration-navy transition-colors duration-250"
               style={{ color: "#1B2E4B" }}
@@ -214,43 +183,32 @@ function RichContent({ content }: { content: AreaContent }) {
   );
 }
 
-function Placeholder() {
-  return (
-    <section className="px-6 md:px-10 py-20">
-      <div className="max-w-site mx-auto">
-        <div
-          className="border border-dashed border-[#DAD7D2] p-12 text-center"
-          style={{ color: "#B8B4AE" }}
-        >
-          <p className="text-[0.875rem] tracking-wide">treść w przygotowaniu</p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default async function AreaPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const area = getArea(params.slug);
+  const { locale, slug } = await params;
+  const area = areas.find((a) => a.id === slug);
   if (!area) notFound();
 
-  const content = await getAreaContent(params.slug);
+  const t = await getTranslations({ locale, namespace: "areas_data" });
+  const tRoot = await getTranslations({ locale });
+  const tStatus = await getTranslations({ locale, namespace: "status" });
+  const content = await getAreaContent(slug);
+
+  const localizedTitle = t(`${slug}.title`);
+  const localizedDescription = t(`${slug}.description`);
+  const localizedStatus = tStatus(area.status);
 
   return (
     <div style={{ backgroundColor: "#F6F4F1", minHeight: "100vh" }}>
-      {/* Top nav */}
       <header
         className="px-6 md:px-10 h-14 flex items-center sticky top-0 z-50"
-        style={{
-          backgroundColor: "#F6F4F1",
-          borderBottom: "1px solid #DAD7D2",
-        }}
+        style={{ backgroundColor: "#F6F4F1", borderBottom: "1px solid #DAD7D2" }}
       >
         <Link
-          href="/"
+          href={`/${locale === "pl" ? "" : locale}`}
           className="text-[13px] font-medium tracking-wider uppercase focus:outline-none focus-visible:underline"
           style={{ color: "#1B2E4B" }}
         >
@@ -258,53 +216,52 @@ export default async function AreaPage({
         </Link>
       </header>
 
-      {/* Hero */}
-      <section
-        className="px-6 md:px-10 pt-16 pb-14"
-        style={{ borderBottom: "1px solid #DAD7D2" }}
-      >
+      <section className="px-6 md:px-10 pt-16 pb-14" style={{ borderBottom: "1px solid #DAD7D2" }}>
         <div className="max-w-site mx-auto">
           <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span
-              className="text-[10px] tracking-[0.14em] uppercase font-medium"
-              style={{ color: "#8A7E6F" }}
-            >
+            <span className="text-[10px] tracking-[0.14em] uppercase font-medium" style={{ color: "#8A7E6F" }}>
               {area.id}
             </span>
-            <StatusChip label={area.status} />
+            <StatusChip label={localizedStatus} />
           </div>
-
           <h1
             className="font-serif text-[clamp(2rem,5vw,4rem)] leading-[1.08] max-w-2xl mb-6"
             style={{ letterSpacing: "-0.025em", color: "#1B2E4B" }}
           >
-            {area.title}
+            {localizedTitle}
           </h1>
-
-          <p
-            className="text-[1.0625rem] leading-[1.75] max-w-xl font-light"
-            style={{ color: "#6B6560" }}
-          >
-            {area.description}
+          <p className="text-[1.0625rem] leading-[1.75] max-w-xl font-light" style={{ color: "#6B6560" }}>
+            {localizedDescription}
           </p>
         </div>
       </section>
 
-      {/* Content */}
-      {content ? <RichContent content={content} /> : <Placeholder />}
+      {content ? (
+        <RichContent
+          content={content}
+          transitionLabels={{
+            from: tRoot("transition.from"),
+            to: tRoot("transition.to"),
+          }}
+        />
+      ) : (
+        <section className="px-6 md:px-10 py-20">
+          <div className="max-w-site mx-auto">
+            <div className="border border-dashed border-[#DAD7D2] p-12 text-center" style={{ color: "#B8B4AE" }}>
+              <p className="text-[0.875rem] tracking-wide">{tRoot("wip")}</p>
+            </div>
+          </div>
+        </section>
+      )}
 
-      {/* Back link */}
-      <div
-        className="px-6 md:px-10 py-12"
-        style={{ borderTop: "1px solid #DAD7D2" }}
-      >
+      <div className="px-6 md:px-10 py-12" style={{ borderTop: "1px solid #DAD7D2" }}>
         <div className="max-w-site mx-auto">
           <Link
-            href="/"
+            href={`/${locale === "pl" ? "" : locale}`}
             className="text-[0.875rem] font-medium underline underline-offset-4 decoration-[#DAD7D2] hover:decoration-navy transition-colors duration-250"
             style={{ color: "#1B2E4B" }}
           >
-            ← Wróć do strony głównej
+            {tRoot("back")}
           </Link>
         </div>
       </div>

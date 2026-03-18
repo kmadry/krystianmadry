@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "start": "Inicio",
+    "areas": "Áreas",
+    "how": "Cómo trabajo",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "label": "Krystian Mądry",
+    "headline": "Conecto mundos",
+    "headlineSub": "que raramente se encuentran.",
+    "words": ["software", "productos", "experiencias", "formas físicas"],
+    "wordsSuffix": "— construidos en paralelo, de forma sistemática, sin caos innecesario."
+  },
+  "areas": {
+    "label": "02 — Áreas",
+    "title": "En qué trabajo",
+    "more": "más →"
+  },
+  "how": {
+    "label": "03 — Proceso",
+    "title": "Cómo trabajo",
+    "principles": [
+      "No me centro en las herramientas, sino en el resultado. El código, el producto o el objeto físico son solo la forma.",
+      "Pienso sistemáticamente — busco dependencias, simplifico, cierro el ciclo. No me interesa la perfección, solo entregar cosas que funcionen.",
+      "La mayor parte de lo que hago ocurre en paralelo. Desde fuera parece caos — por dentro tiene estructura."
+    ]
+  },
+  "contact": {
+    "label": "04 — Contacto",
+    "title": "Contacto",
+    "text": "Si ves un lugar donde nuestros caminos podrían cruzarse — escríbeme. Sin formularios largos ni introducciones corporativas.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn"
+  },
+  "footer": {
+    "tagline": "De la idea a la forma."
+  },
+  "back": "← Volver al inicio",
+  "wip": "contenido en preparación",
+  "transition": {
+    "from": "Del modo",
+    "to": "Pasas a"
+  },
+  "areas_data": {
+    "engineering": {
+      "title": "Ingeniería / Trabajo de proyecto",
+      "description": "Construyo y entrego productos digitales complejos — desde la implementación hasta la arquitectura."
+    },
+    "produkty": {
+      "title": "Productos propios",
+      "description": "Creo mis propias aplicaciones y productos — desde la idea hasta la primera versión funcional."
+    },
+    "mentoring": {
+      "title": "Mentoring / Inkubacja.dev",
+      "description": "Ayudo a desarrolladores a subir de nivel — a través del pensamiento y la entrega, no de otra tecnología."
+    },
+    "events": {
+      "title": "Eventos / Integración",
+      "description": "Creo experiencias basadas en competición y diversión — el primer evento RC está en camino."
+    },
+    "design": {
+      "title": "Forma / Inspiracja",
+      "description": "Traduzco ideas en formas físicas — objetos minimalistas y moldes."
+    },
+    "tools": {
+      "title": "Herramientas / Producción",
+      "description": "Impresión 3D, CNC y grabado — una base para crear y probar cosas."
+    },
+    "ops": {
+      "title": "Operaciones / Alquiler",
+      "description": "Estoy construyendo un negocio simple basado en equipos y accesibilidad."
+    }
+  },
+  "status": {
+    "aktywnie": "activo",
+    "w trakcie": "en progreso",
+    "w budowie": "en construcción",
+    "startuje": "iniciando",
+    "pierwszy event": "primer evento",
+    "pierwsi klienci": "primeros clientes",
+    "rozwój": "creciendo",
+    "start": "lanzando"
+  }
+}
