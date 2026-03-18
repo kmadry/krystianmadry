@@ -1,16 +1,19 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 
 interface RevealOnScrollProps {
   children: React.ReactNode;
   className?: string;
+  style?: CSSProperties;
   delay?: number;
 }
 
 export default function RevealOnScroll({
   children,
   className = "",
+  style,
   delay = 0,
 }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,8 +43,11 @@ export default function RevealOnScroll({
       ref={ref}
       className={className}
       style={{
+        ...style,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(16px)",
+        // GPU compositing hint — avoids layout recalculation on animate
+        willChange: visible ? "auto" : "opacity, transform",
         transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
       }}
     >
